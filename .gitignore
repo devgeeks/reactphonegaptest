@@ -1,0 +1,8 @@
+node_modules
+www
+platforms
+plugins
+www/js/bundle.js
+www/index.js
+www/index.html
+coverage
