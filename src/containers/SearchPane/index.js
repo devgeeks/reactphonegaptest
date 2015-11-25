@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Navbar from '../../components/Navbar';
+import SearchForm from '../../components/SearchForm';
 
 const SearchPane = React.createClass({
 
@@ -13,7 +14,10 @@ const SearchPane = React.createClass({
 
   render: function() {
     return (
-      <Navbar />
+      <div>
+        <Navbar />
+        <SearchForm />
+      </div>
     );
   }
 });

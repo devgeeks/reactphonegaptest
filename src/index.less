@@ -1,4 +1,5 @@
 @import (reference) 'less_includes/mixins.less';
+@import (reference) 'less_includes/colors.less';
 @import (reference) 'less_includes/variables.less';
 
 * {
@@ -19,5 +20,11 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background: @primaryColor;
+}
+
+.app {
+  .positionAbsolute();
+  background: @white;
 }
 

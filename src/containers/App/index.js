@@ -1,6 +1,7 @@
 import React from 'react';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 
 const App = React.createClass({
 
@@ -18,10 +19,14 @@ const App = React.createClass({
 
   render: function() {
 
+    const cx = classNames({
+      'app': true,
+    });
+
     let key = this.props.location.pathname;
 
     return (
-      <div className='app'>
+      <div className={ cx }>
         <CSSTransitionGroup
             transitionEnterTimeout={ 250 } transitionLeaveTimeout={ 250 }
             transitionName='routetransition'>

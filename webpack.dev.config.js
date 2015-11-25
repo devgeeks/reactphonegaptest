@@ -1,40 +1,47 @@
 'use strict';
 
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
 var definePlugin = new webpack.DefinePlugin({
   'process.env': {
     'NODE_ENV': JSON.stringify(process.env.NODE_ENV) || JSON.stringify('development')
   }
 });
 var lessLoaders = [
+  'style',
   'css-loader',
   'autoprefixer-loader?browsers=last 3 versions',
   'less-loader'
 ];
 module.exports = {
-  entry: './src/index.js',
+  entry: [
+    'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
+    'webpack/hot/only-dev-server',
+    './src/index.js'
+  ],
   output: {
     path: __dirname,
-    filename: 'www/js/bundle.js'
+    filename: 'www/js/bundle.js',
+    publicPath: '/js/',
   },
   devtool: 'source-map',
   module: {
     loaders: [
       {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract(lessLoaders.join('!')),
-        exclude: /less_includes/
+        loader: lessLoaders.join('!'),
+        exclude: /less_includes/,
       },
       {
         test: /\.js$/,
-        exclude: /node_modules|crypton\.js/,
-        loader: 'babel-loader?stage=0'
+        exclude: /node_modules/,
+        loaders: ['babel-loader'],
+        include: path.join(__dirname, 'src'),
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('www/css/index.css'),
+    new webpack.HotModuleReplacementPlugin(),
     definePlugin
   ]
 };

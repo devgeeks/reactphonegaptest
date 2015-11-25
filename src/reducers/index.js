@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { search} from './search';
+import { search } from './search';
 import { media } from './media';
 
 const combinedReducer = combineReducers({
