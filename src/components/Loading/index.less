@@ -1,0 +1,15 @@
+@import (reference) '../../less_includes/mixins.less';
+@import (reference) '../../less_includes/colors.less';
+@import (reference) '../../less_includes/materialDesignShadowHelper.less';
+
+.loading {
+  display: block;
+  .positionAbsolute();
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+  padding: 100px 0;
+
+  &.dismissed {
+    display: none;
+  }
+}

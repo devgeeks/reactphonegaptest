@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Header from '../../components/Navbar';
+import Navbar from '../../components/Navbar';
+import ResultsList from '../../components/ResultsList';
+import Loading from '../../components/Loading';
 
 import { searchMedia } from '../../actions/search';
 
@@ -28,9 +30,13 @@ const ResultsPane = React.createClass({
   },
 
   render: function() {
+    const { search } = this.props;
+    const { searchResults, loading } = search;
     return (
       <div>
-        <Header />
+        <Navbar />
+        <Loading dismissed={ !loading } />
+        <ResultsList searchResults={ searchResults } />
       </div>
     );
   }

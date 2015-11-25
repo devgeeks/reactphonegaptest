@@ -1,0 +1,36 @@
+@import (reference) '../../less_includes/mixins.less';
+@import (reference) '../../less_includes/colors.less';
+@import (reference) '../../less_includes/materialDesignShadowHelper.less';
+
+.media-list-item {
+  .listItem(128px);
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: @primaryTextColor;
+
+  .artwork {
+    margin-right: 10px;
+  }
+
+  .info {
+    padding: 0 5px;
+    flex: 4;
+  }
+
+  .title {
+    font-size: 110%;
+    font-weight: 600;
+  }
+
+  .subtitle {
+  }
+
+  .collectiontitle {
+    color: @secondaryTextColor;
+  }
+
+  .price {
+    flex: 1;
+  }
+}
