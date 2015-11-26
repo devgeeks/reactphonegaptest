@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { MdArrowBack } from 'react-icons/lib/md';
 
 import Navbar from '../../components/Navbar';
 import ResultsList from '../../components/ResultsList';
@@ -14,7 +15,7 @@ const ResultsPane = React.createClass({
   componentDidMount: function() {
     const { dispatch } = this.props;
     const params = {
-      term: 'punk',
+      term: 'react',
       entity: 'song',
       explicit: false,
       limit: 25,
@@ -29,12 +30,22 @@ const ResultsPane = React.createClass({
     search: React.PropTypes.object,
   },
 
+  handleBackButton: function(e) {
+    e.preventDefault();
+    const { history } = this.props;
+    history.goBack();
+  },
+
   render: function() {
     const { search } = this.props;
     const { searchResults, loading } = search;
     return (
       <div>
-        <Navbar />
+        <Navbar>
+          <button name='back' onClick={ this.handleBackButton }><MdArrowBack /></button>
+          <h1>Results</h1>
+          <button />
+        </Navbar>
         <Loading dismissed={ !loading } />
         <ResultsList searchResults={ searchResults } />
       </div>

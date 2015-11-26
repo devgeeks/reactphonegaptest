@@ -44,7 +44,7 @@ ReactDOM.render(
           <Route path='search' component={ SearchPane } />
           <Route path='results' component={ ResultsPane } />
           <Route path='details' component={ DetailsPane } />
-          <Redirect from='/' to='/search' />
+          <Redirect from='/' to='/results' />
         </Route>
       </Router>
     </Provider>

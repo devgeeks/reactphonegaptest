@@ -17,7 +17,9 @@ export default React.createClass({
     const { searchResults } = this.props;
 
     const results =
-      searchResults.results.map(result => <MediaListItem key={ result.trackId } mediaItem={ result } />);
+      searchResults.results.map(
+        result => <MediaListItem key={ result.trackId } mediaItem={ result } />
+      );
 
     return (
       <div className='results-list'>

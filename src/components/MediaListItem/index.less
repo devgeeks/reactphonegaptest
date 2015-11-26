@@ -3,34 +3,65 @@
 @import (reference) '../../less_includes/materialDesignShadowHelper.less';
 
 .media-list-item {
-  .listItem(128px);
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  color: @primaryTextColor;
+  .listItem(81px);
 
-  .artwork {
-    margin-right: 10px;
-  }
+  .content {
+    width: 100%;
+    display: block;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
+    color: @primaryTextColor;
+    text-decoration: none;
 
-  .info {
-    padding: 0 5px;
-    flex: 4;
-  }
+    &:active {
+      background: @accentColor;
+    }
 
-  .title {
-    font-size: 110%;
-    font-weight: 600;
-  }
+    .artwork {
+      margin-right: 10px;
+      order: 0;
+      flex: 0 1 60px;
+    }
 
-  .subtitle {
-  }
+    .info {
+      height: 60px;
+      overflow: hidden;
+      font-size: 80%;
+      padding: 0 5px;
+      order: 0;
+      flex: 1 1 250px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-around;
 
-  .collectiontitle {
-    color: @secondaryTextColor;
-  }
+      .title {
+        font-weight: 600;
+        .ellipsis();
+      }
 
-  .price {
-    flex: 1;
+      .subtitle {
+        .ellipsis();
+      }
+
+      .collectiontitle {
+        color: @secondaryTextColor;
+        .ellipsis();
+      }
+    }
+
+    .price {
+      font-size: 70%;
+      width: 55px;
+      flex: 0 1 55px;
+      order: 0;
+      text-align: right;
+      padding: 0 0 0 10px
+    }
   }
 }

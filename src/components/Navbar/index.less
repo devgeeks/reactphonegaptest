@@ -8,4 +8,54 @@
   z-index: 10;
   height: 55px;
   background: @primaryColor;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: center;
+
+  h1 {
+    order: 0;
+    flex: 1 0 auto;
+    align-self: auto;
+    font-size: 120%;
+    text-align: center;
+    color: @textPrimaryColor;
+    padding: 0 8px;
+    margin: 0;
+    font-weight: 300;
+    text-align: left;
+    .ellipsis();
+  }
+
+  button {
+    order: 0;
+    flex: 0 0 45px;
+    align-self: auto;
+    height: 55px;
+    text-align: left;
+    padding: 0 8px;
+    margin: 0;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    background: transparent;
+    color: @lightPrimaryColor;
+    font-size: 100%;
+
+    svg {
+      fill: @lightPrimaryColor;
+    }
+
+    &:active {
+
+      svg {
+        fill: @textPrimaryColor;
+      }
+    }
+
+  }
 }
