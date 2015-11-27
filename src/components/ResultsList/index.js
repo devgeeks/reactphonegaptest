@@ -18,7 +18,10 @@ export default React.createClass({
 
     const results =
       searchResults.results.map(
-        result => <MediaListItem key={ result.trackId } mediaItem={ result } />
+        (result, idx) => {
+          return (<MediaListItem key={ result.trackId } mediaItem={ result }
+              mediaItemIndex={ idx }/>);
+        }
       );
 
     return (

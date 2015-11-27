@@ -1,3 +1,82 @@
-.search-form {
+@import (reference) '../../less_includes/mixins.less';
+@import (reference) '../../less_includes/variables.less';
+@import (reference) '../../less_includes/colors.less';
+@import (reference) '../../less_includes/materialDesignShadowHelper.less';
 
+.search-form {
+  .positionAbsolute();
+  background: @white;
+  padding: 55px 0 0 0;
+
+  .label {
+    color: @secondaryTextColor;
+    text-transform: uppercase;
+    font-size: 80%;
+    font-weight: 600;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: stretch;
+    align-items: stretch;
+    padding: 20px;
+
+    button {
+      order: 0;
+      flex: 0 0 auto;
+      align-self: auto;
+      -webkit-appearance: none;
+      border: none;
+      outline: none;
+      color: @textPrimaryColor;
+      background: @accentColor;
+      padding: 10px 0;
+      margin: 10px 0;
+      font-size: 100%;
+      .BoxShadowHelper(1);
+
+      &:active {
+        background: lighten(@accentColor, 10%);
+        .BoxShadowHelper(2);
+      }
+    }
+
+    input {
+      order: 0;
+      flex: 0 0 auto;
+      align-self: auto;
+      -webkit-appearance: none;
+      font-size: 100%;
+      border: none;
+      outline: none;
+      padding: 10px 0;
+      margin: 10px 0;
+      border-bottom: 1px solid @dividerColor;
+    }
+  }
+}
+
+.routetransition-enter .search-form {
+  transform: scale(0.95, 0.95);
+  opacity: 0.01;
+}
+
+.routetransition-enter.routetransition-enter-active .search-form {
+  transform: scale(1, 1);
+  opacity: 1;
+  transition: all .25s ease-in-out;
+}
+
+.routetransition-leave .search-form {
+  transform: scale(1, 1);
+  opacity: 1;
+  transition: all .25s ease-in-out;
+}
+
+.routetransition-leave.routetransition-leave-active .search-form {
+  transform: scale(0.95, 0.95);
+  opacity: 0.01;
 }

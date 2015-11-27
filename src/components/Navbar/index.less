@@ -15,12 +15,16 @@
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-content: stretch;
-  align-items: center;
+  align-items: flex-start;
+  transition: height .9s ease-in-out;
+
+  &.extended {
+    height: 255px;
+  }
 
   h1 {
     order: 0;
-    flex: 1 0 auto;
-    align-self: auto;
+    flex: 1 1 auto;
     font-size: 120%;
     text-align: center;
     color: @textPrimaryColor;
@@ -28,6 +32,8 @@
     margin: 0;
     font-weight: 300;
     text-align: left;
+    height: 55px;
+    line-height: 55px;
     .ellipsis();
   }
 
@@ -58,4 +64,32 @@
     }
 
   }
+}
+
+.routetransition-enter .navbar h1, .routetransition-enter .navbar button {
+  opacity: 0.01;
+}
+
+.routetransition-enter.routetransition-enter-active .navbar h1,
+.routetransition-enter.routetransition-enter-active .navbar button {
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+}
+
+.routetransition-leave .navbar h1, .routetransition-leave .navbar button {
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+}
+
+.routetransition-leave.routetransition-leave-active .navbar h1,
+.routetransition-leave.routetransition-leave-active .navbar button {
+  opacity: 0.01;
+}
+
+.routetransition-leave .navbar {
+  box-shadow: none;
+}
+
+.routetransition-enter .navbar {
+  .BoxShadowHelper(1);
 }

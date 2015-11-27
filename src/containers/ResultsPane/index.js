@@ -1,33 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { MdArrowBack } from 'react-icons/lib/md';
+import MdArrowBack from 'react-icons/lib/md/arrow-back';
 
 import Navbar from '../../components/Navbar';
 import ResultsList from '../../components/ResultsList';
 import Loading from '../../components/Loading';
 
-import { searchMedia } from '../../actions/search';
-
 const ResultsPane = React.createClass({
 
   displayName: 'ResultsPane',
 
-  componentDidMount: function() {
-    const { dispatch } = this.props;
-    const params = {
-      term: 'react',
-      entity: 'song',
-      explicit: false,
-      limit: 25,
-      callback: '',
-    };
-    dispatch(searchMedia(params));
-  },
+  //componentDidMount: function() {
+    //const { dispatch } = this.props;
+    //const params = {
+      //term: 'redux',
+      //entity: 'song',
+      //explicit: false,
+      //limit: 25,
+      //callback: '',
+    //};
+    //dispatch(searchMedia(params));
+  //},
 
   propTypes: {
     dispatch: React.PropTypes.func,
     history: React.PropTypes.object,
-    search: React.PropTypes.object,
+    results: React.PropTypes.object,
   },
 
   handleBackButton: function(e) {
@@ -37,14 +35,13 @@ const ResultsPane = React.createClass({
   },
 
   render: function() {
-    const { search } = this.props;
-    const { searchResults, loading } = search;
+    const { results } = this.props;
+    const { searchResults, loading } = results;
     return (
       <div>
         <Navbar>
           <button name='back' onClick={ this.handleBackButton }><MdArrowBack /></button>
           <h1>Results</h1>
-          <button />
         </Navbar>
         <Loading dismissed={ !loading } />
         <ResultsList searchResults={ searchResults } />
@@ -54,8 +51,8 @@ const ResultsPane = React.createClass({
 });
 
 function mapStateToProps(state) {
-  const { search } = state;
-  return { search };
+  const { results } = state;
+  return { results };
 }
 
 export default connect(mapStateToProps)(ResultsPane);

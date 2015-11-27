@@ -43,8 +43,8 @@ ReactDOM.render(
         <Route component={ App }>
           <Route path='search' component={ SearchPane } />
           <Route path='results' component={ ResultsPane } />
-          <Route path='details' component={ DetailsPane } />
-          <Redirect from='/' to='/results' />
+          <Route path='details/:id' component={ DetailsPane } />
+          <Redirect from='/' to='/search' />
         </Route>
       </Router>
     </Provider>

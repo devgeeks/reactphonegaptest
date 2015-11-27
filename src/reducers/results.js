@@ -11,11 +11,12 @@ const initialState = {
   },
 };
 
-export function search(state = initialState, action) {
+export function results(state = initialState, action) {
   switch (action.type) {
     case RESULTS_LOAD_PENDING:
       return {
         ...state,
+        searchResults: initialState.searchResults, // reset
         loading: true,
         error: ''
       };

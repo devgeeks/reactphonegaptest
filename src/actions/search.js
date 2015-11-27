@@ -22,7 +22,7 @@ export function searchMedia(params) {
 }
 
 function shouldSearchMedia(state) {
-  const { loading } = state.search;
+  const { loading } = state.results;
   return !loading;
 }
 
@@ -45,4 +45,3 @@ function searchCompleted(results) {
     searchResults: results
   };
 }
-

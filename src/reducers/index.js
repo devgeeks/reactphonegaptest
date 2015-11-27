@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { search } from './search';
+import { results } from './results';
 import { media } from './media';
 
 const combinedReducer = combineReducers({
   media,
-  search,
+  results,
 });
 
 export default combinedReducer;

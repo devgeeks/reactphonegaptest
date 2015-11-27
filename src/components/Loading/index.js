@@ -16,7 +16,7 @@ export default React.createClass({
   render: function() {
 
     const { dismissed } = this.props;
-  
+
     const cx = classNames({
       'loading': true,
       'dismissed': !!dismissed
@@ -24,7 +24,7 @@ export default React.createClass({
 
     return (
       <div className={ cx }>
-        <Spinner pending={ true } height='60px' width='60px' />
+        <Spinner pending={ true } dark={ true } height='60px' width='60px' />
       </div>
     );
   }

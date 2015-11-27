@@ -9,11 +9,12 @@ export default React.createClass({
   displayName: 'MediaListItem',
 
   propTypes: {
-    mediaItem: React.PropTypes.object
+    mediaItem: React.PropTypes.object,
+    mediaItemIndex: React.PropTypes.number,
   },
 
   render: function() {
-    const { mediaItem } = this.props;
+    const { mediaItem, mediaItemIndex } = this.props;
     const {
       artworkUrl60,
       trackCensoredName,
@@ -23,7 +24,8 @@ export default React.createClass({
     } = mediaItem;
     return (
       <li className='media-list-item'>
-        <Link to='/results' className='content' mediaItem={ mediaItem }>
+        <Link to={ `/details/${mediaItemIndex}` } className='content'
+            mediaItem={ mediaItem }>
           <img alt='artwork' className='artwork'
               src={ artworkUrl60 } />
           <div className='info'>

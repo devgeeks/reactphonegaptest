@@ -8,12 +8,15 @@ export default React.createClass({
   displayName: 'Navbar',
 
   propTypes: {
-    children: React.PropTypes.any
+    children: React.PropTypes.any,
+    extended: React.PropTypes.bool,
   },
 
   render: function() {
+    const { extended } = this.props;
     const cx = classNames({
-      'navbar': true
+      'navbar': true,
+      'extended': !!extended,
     });
     return (
       <header className={ cx }>

@@ -3,36 +3,29 @@
 @import (reference) '../../less_includes/colors.less';
 @import (reference) '../../less_includes/materialDesignShadowHelper.less';
 
-.results-list {
+.media-details {
   .positionAbsolute();
-  .scrollable();
-  margin-top: 55px;
-  padding: 0;
-  background: @white;
-
-  ul {
-    .list();
-  }
+  background: #ffffff;
 }
 
-.routetransition-enter .results-list {
+.routetransition-enter .media-details {
   transform: scale(0.95, 0.95);
   opacity: 0.01;
 }
 
-.routetransition-enter.routetransition-enter-active .results-list {
+.routetransition-enter.routetransition-enter-active .media-details {
   transform: scale(1, 1);
   opacity: 1;
   transition: all .25s ease-in-out;
 }
 
-.routetransition-leave .results-list {
+.routetransition-leave .media-details {
   transform: scale(1, 1);
   opacity: 1;
   transition: all .25s ease-in-out;
 }
 
-.routetransition-leave.routetransition-leave-active .results-list {
+.routetransition-leave.routetransition-leave-active .media-details {
   transform: scale(0.95, 0.95);
   opacity: 0.01;
 }
