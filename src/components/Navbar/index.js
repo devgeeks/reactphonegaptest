@@ -19,7 +19,7 @@ export default React.createClass({
       'extended': !!extended,
     });
     return (
-      <header className={ cx }>
+      <header ref='header' className={ cx }>
         { this.props.children }
       </header>
     );

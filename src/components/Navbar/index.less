@@ -2,6 +2,7 @@
 @import (reference) '../../less_includes/colors.less';
 @import (reference) '../../less_includes/materialDesignShadowHelper.less';
 
+/* @TODO Break this into multiple components */
 .navbar {
   .positionAbsolute(0, 0, auto, 0);
   .BoxShadowHelper(1);
@@ -16,10 +17,42 @@
   justify-content: flex-start;
   align-content: stretch;
   align-items: flex-start;
-  transition: height .9s ease-in-out;
+
+  .extendedContent, .bg {
+    display: none;
+  }
 
   &.extended {
-    height: 255px;
+    height: 171px;
+
+    .bg {
+      display: block;
+      .positionAbsolute();
+      -webkit-filter: blur(8px) brightness(70%) opacity(70%);
+    }
+
+    .extendedContent {
+      display: block;
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      left: 16px;
+      color: @textPrimaryColor;
+      display: flex;
+      align-items: flex-end;
+
+      .info {
+        padding: 0 8px 4px 16px;
+
+        .title {
+          font-weight: 600;
+          margin-bottom: 8px;
+        }
+
+        .subtitle {
+        }
+      }
+    }
   }
 
   h1 {
@@ -53,13 +86,13 @@
     font-size: 100%;
 
     svg {
-      fill: @lightPrimaryColor;
+      fill: @textPrimaryColor;
     }
 
     &:active {
 
       svg {
-        fill: @textPrimaryColor;
+        fill: @lightPrimaryColor;
       }
     }
 
@@ -73,12 +106,12 @@
 .routetransition-enter.routetransition-enter-active .navbar h1,
 .routetransition-enter.routetransition-enter-active .navbar button {
   opacity: 1;
-  transition: opacity .25s ease-in-out;
+  transition: all .25s ease-in-out;
 }
 
 .routetransition-leave .navbar h1, .routetransition-leave .navbar button {
   opacity: 1;
-  transition: opacity .25s ease-in-out;
+  transition: all .25s ease-in-out;
 }
 
 .routetransition-leave.routetransition-leave-active .navbar h1,
@@ -92,4 +125,26 @@
 
 .routetransition-enter .navbar {
   .BoxShadowHelper(1);
+}
+
+.routetransition-enter .navbar.extended {
+  height: 55px;
+  opacity: 0.01;
+}
+
+.routetransition-enter.routetransition-enter-active .navbar.extended {
+  height: 171px;
+  opacity: 1;
+  transition: all .25s ease-in-out;
+}
+
+.routetransition-leave .navbar.extended {
+  height: 171px;
+  opacity: 1;
+  transition: all .25s ease-in-out;
+}
+
+.routetransition-leave.routetransition-leave-active .navbar.extended {
+  height: 55px;
+  opacity: 0.01;
 }

@@ -10,18 +10,6 @@ const ResultsPane = React.createClass({
 
   displayName: 'ResultsPane',
 
-  //componentDidMount: function() {
-    //const { dispatch } = this.props;
-    //const params = {
-      //term: 'redux',
-      //entity: 'song',
-      //explicit: false,
-      //limit: 25,
-      //callback: '',
-    //};
-    //dispatch(searchMedia(params));
-  //},
-
   propTypes: {
     dispatch: React.PropTypes.func,
     history: React.PropTypes.object,
