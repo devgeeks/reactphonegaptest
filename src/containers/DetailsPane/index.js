@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import MdArrowBack from 'react-icons/lib/md/arrow-back';
+import MdPlayArrow from 'react-icons/lib/md/play-arrow';
 
 import Navbar from '../../components/Navbar';
 import MediaDetails from '../../components/MediaDetails';
+import Fab from '../../components/Fab';
 
 const DetailsPane = React.createClass({
 
@@ -21,6 +23,26 @@ const DetailsPane = React.createClass({
     history.goBack();
   },
 
+  handleFabClick: function() {
+    const { searchResults } = this.props.results;
+    const { results } = searchResults;
+    const { id:resultsIndex } = this.props.params;
+    const mediaItem = results[resultsIndex];
+
+    switch (mediaItem.wrapperType) {
+      case 'track':
+        console.log('play song');
+        break;
+      case 'audiobook':
+        console.log('show description');
+        break;
+      case 'videoclip':
+        console.log('play video');
+        break;
+      default:
+    };
+  },
+
   render: function() {
     const { searchResults } = this.props.results;
     const { results } = searchResults;
@@ -29,15 +51,17 @@ const DetailsPane = React.createClass({
     return (
       <div>
         <Navbar ref='navbar' extended={ true }>
+          <button name='back' style={ { zIndex: 2 } } onClick={ this.handleBackButton }>
+            <MdArrowBack />
+          </button>
+          <h1 />
+          <button />
           <div className='bg'
               style={ {
                 background: 'url(' + mediaItem.artworkUrl100 +
                                 ') center center no-repeat',
                 backgroundSize: '100%'
               } } />
-          <button name='back' style={ { zIndex: 2 } } onClick={ this.handleBackButton }>
-            <MdArrowBack />
-          </button>
           <div className='extendedContent'>
             <img width='100' src={ mediaItem.artworkUrl100 } alt='artwork' />
             <div className='info'>
@@ -47,6 +71,9 @@ const DetailsPane = React.createClass({
           </div>
         </Navbar>
         <MediaDetails mediaItem={ mediaItem } />
+        <Fab navbar={ true } handleFabClick={ this.handleFabClick }>
+          <MdPlayArrow size='48' />
+        </Fab>
       </div>
     );
   }

@@ -23,7 +23,7 @@
   }
 
   &.extended {
-    height: 171px;
+    height: 203px;
 
     .bg {
       display: block;
@@ -35,7 +35,7 @@
       display: block;
       position: absolute;
       right: 16px;
-      bottom: 16px;
+      bottom: 48px;
       left: 16px;
       color: @textPrimaryColor;
       display: flex;
@@ -106,12 +106,12 @@
 .routetransition-enter.routetransition-enter-active .navbar h1,
 .routetransition-enter.routetransition-enter-active .navbar button {
   opacity: 1;
-  transition: all .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
 }
 
 .routetransition-leave .navbar h1, .routetransition-leave .navbar button {
   opacity: 1;
-  transition: all .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
 }
 
 .routetransition-leave.routetransition-leave-active .navbar h1,
@@ -133,13 +133,13 @@
 }
 
 .routetransition-enter.routetransition-enter-active .navbar.extended {
-  height: 171px;
+  height: 203px;
   opacity: 1;
   transition: all .25s ease-in-out;
 }
 
 .routetransition-leave .navbar.extended {
-  height: 171px;
+  height: 203px;
   opacity: 1;
   transition: all .25s ease-in-out;
 }

@@ -4,8 +4,16 @@
 @import (reference) '../../less_includes/materialDesignShadowHelper.less';
 
 .media-details {
-  .positionAbsolute();
+  .positionAbsolute(203px, 0, 0, 0);
+  padding: 16px;
   background: #ffffff;
+
+  .label {
+    color: @secondaryTextColor;
+    text-transform: uppercase;
+    font-size: 80%;
+    font-weight: 600;
+  }
 }
 
 .routetransition-enter .media-details {
@@ -29,3 +37,4 @@
   transform: scale(0.9, 0.9);
   opacity: 0.01;
 }
+
