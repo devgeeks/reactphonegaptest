@@ -5,6 +5,7 @@ import MdArrowBack from 'react-icons/lib/md/arrow-back';
 import Navbar from '../../components/Navbar';
 import ResultsList from '../../components/ResultsList';
 import Loading from '../../components/Loading';
+import { selectMedia } from '../../actions/media';
 
 const ResultsPane = React.createClass({
 
@@ -22,6 +23,12 @@ const ResultsPane = React.createClass({
     history.goBack();
   },
 
+  handleItemClick: function(mediaItem) {
+    const { dispatch, history } = this.props;
+    dispatch(selectMedia(mediaItem));
+    history.pushState(null, '/details');
+  },
+
   render: function() {
     const { results } = this.props;
     const { searchResults, loading } = results;
@@ -32,7 +39,7 @@ const ResultsPane = React.createClass({
           <h1>Results</h1>
         </Navbar>
         <Loading dismissed={ !loading } />
-        <ResultsList searchResults={ searchResults } />
+        <ResultsList handleItemClick={ this.handleItemClick } searchResults={ searchResults } />
       </div>
     );
   }

@@ -38,10 +38,10 @@
     </platform>
     <platform name="ios">
         <preference name="Orientation" value="all" />
-        <preference name="StatusBarOverlaysWebView" value="false" />
-        <preference name="StatusBarBackgroundColor" value="#607D8B" />
-        <preference name="StatusBarStyle" value="lightContent" />
     </platform>
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#512DA8" />
+    <preference name="StatusBarStyle" value="lightContent" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
     <preference name="keepRunning" value="true" />

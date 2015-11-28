@@ -13,6 +13,7 @@ const DetailsPane = React.createClass({
 
   propTypes: {
     history: React.PropTypes.object,
+    media: React.PropTypes.object,
     params: React.PropTypes.object,
     results: React.PropTypes.object,
   },
@@ -24,10 +25,7 @@ const DetailsPane = React.createClass({
   },
 
   handleFabClick: function() {
-    const { searchResults } = this.props.results;
-    const { results } = searchResults;
-    const { id:resultsIndex } = this.props.params;
-    const mediaItem = results[resultsIndex];
+    const { media:mediaItem } = this.props;
 
     switch (mediaItem.wrapperType) {
       case 'track':
@@ -44,10 +42,7 @@ const DetailsPane = React.createClass({
   },
 
   render: function() {
-    const { searchResults } = this.props.results;
-    const { results } = searchResults;
-    const { id:resultsIndex } = this.props.params;
-    const mediaItem = results[resultsIndex];
+    const { media:mediaItem } = this.props;
     return (
       <div>
         <Navbar ref='navbar' extended={ true }>
@@ -80,8 +75,8 @@ const DetailsPane = React.createClass({
 });
 
 function mapStateToProps(state) {
-  const { results } = state;
-  return { results };
+  const { media } = state;
+  return { media };
 }
 
 export default connect(mapStateToProps)(DetailsPane);

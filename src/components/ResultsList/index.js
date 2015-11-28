@@ -9,18 +9,20 @@ export default React.createClass({
   displayName: 'ResultsList',
 
   propTypes: {
+    handleItemClick: React.PropTypes.func,
     searchResults: React.PropTypes.object,
   },
 
   render: function() {
 
-    const { searchResults } = this.props;
+    const { searchResults, handleItemClick } = this.props;
 
     const results =
       searchResults.results.map(
         (result, idx) => {
-          return (<MediaListItem key={ result.trackId } mediaItem={ result }
-              mediaItemIndex={ idx }/>);
+          return (<MediaListItem handleItemClick={ handleItemClick }
+              key={ result.trackId } mediaItem={ result }
+              mediaItemIndex={ idx } />);
         }
       );
 

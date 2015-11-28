@@ -35,6 +35,13 @@ if (process.env.NODE_ENV !== 'production') {
     </DebugPanel>
   );
 }
+
+document.addEventListener('deviceready', () => {
+  StatusBar && StatusBar.styleLightContent();
+  StatusBar && StatusBar.backgroundColorByHexString('#512DA8');
+  StatusBar && StatusBar.overlaysWebView(false);
+}, false);
+
 // Render the Provider (complete with store) and the routes to the DOM
 ReactDOM.render(
   <div>
@@ -43,7 +50,7 @@ ReactDOM.render(
         <Route component={ App }>
           <Route path='search' component={ SearchPane } />
           <Route path='results' component={ ResultsPane } />
-          <Route path='details/:id' component={ DetailsPane } />
+          <Route path='details' component={ DetailsPane } />
           <Redirect from='/' to='/search' />
         </Route>
       </Router>
@@ -52,3 +59,4 @@ ReactDOM.render(
   </div>,
   document.getElementById('app')
 );
+

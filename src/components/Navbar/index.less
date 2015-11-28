@@ -24,10 +24,11 @@
 
   &.extended {
     height: 203px;
+    z-index: 11;
 
     .bg {
       display: block;
-      .positionAbsolute();
+      .positionAbsolute(-8px, -8px, 0, -8px);
       -webkit-filter: blur(8px) brightness(70%) opacity(70%);
     }
 
@@ -41,7 +42,11 @@
       display: flex;
       align-items: flex-end;
 
+      img {
+        flex: 0 0 100px;
+      }
       .info {
+        flex: 1 0 200px;
         padding: 0 8px 4px 16px;
 
         .title {
@@ -128,23 +133,23 @@
 }
 
 .routetransition-enter .navbar.extended {
-  height: 55px;
+  transform: translate3d(0, -148px, 0);
   opacity: 0.01;
 }
 
 .routetransition-enter.routetransition-enter-active .navbar.extended {
-  height: 203px;
+  transform: translate3d(0, 0, 0);
   opacity: 1;
   transition: all .25s ease-in-out;
 }
 
 .routetransition-leave .navbar.extended {
-  height: 203px;
+  transform: translate3d(0, 0, 0);
   opacity: 1;
   transition: all .25s ease-in-out;
 }
 
 .routetransition-leave.routetransition-leave-active .navbar.extended {
-  height: 55px;
+  transform: translate3d(0, -148px, 0);
   opacity: 0.01;
 }

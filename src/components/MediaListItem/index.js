@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 // import classNames from 'classnames';
 
 import './index.less';
@@ -9,12 +8,19 @@ export default React.createClass({
   displayName: 'MediaListItem',
 
   propTypes: {
+    handleItemClick: React.PropTypes.func,
     mediaItem: React.PropTypes.object,
     mediaItemIndex: React.PropTypes.number,
   },
 
+  handleClick: function(e) {
+    e.preventDefault();
+    const { handleItemClick, mediaItem } = this.props;
+    handleItemClick(mediaItem);
+  },
+
   render: function() {
-    const { mediaItem, mediaItemIndex } = this.props;
+    const { mediaItem } = this.props;
     const {
       artworkUrl60,
       trackCensoredName,
@@ -24,7 +30,7 @@ export default React.createClass({
     } = mediaItem;
     return (
       <li className='media-list-item'>
-        <Link to={ `/details/${mediaItemIndex}` } className='content'
+        <a href='#' onClick={ this.handleClick } className='content'
             mediaItem={ mediaItem }>
           <img alt='artwork' className='artwork'
               src={ artworkUrl60 } />
@@ -36,7 +42,7 @@ export default React.createClass({
             </div>
           </div>
           <div className='price'>${ trackPrice }</div>
-        </Link>
+        </a>
       </li>
     );
   }

@@ -4,11 +4,11 @@
   "description": "small react phonegap project example",
   "main": "src/index.js",
   "scripts": {
-    "start": "NODE_ENV=development ./node_modules/.bin/webpack --config webpack.dev.config.js && node server",
+    "start": "NODE_ENV=development rm -rf ./www/css/index.* && ./node_modules/.bin/webpack --config webpack.dev.config.js && node server",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack -p",
     "build-dev": "NODE_ENV=development ./node_modules/.bin/webpack",
-    "test": "BABEL_JEST_STAGE=0 ./node_modules/.bin/jest --coverage",
-    "watch:test": "nodemon -w __tests__ -w ./src -e js -x npm test"
+    "test": "BABEL_JEST_STAGE=0 rm -rf ./www/css/index.* && ./node_modules/.bin/jest --coverage",
+    "watch:test": "nodemon -w __tests__ -w rm -rf ./www/css/index.* && ./src -e js -x npm test"
   },
   "author": "tommy-carlos williams <tommy@devgeeks.org>",
   "license": "MIT",
