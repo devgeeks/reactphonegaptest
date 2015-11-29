@@ -15,6 +15,24 @@
     font-weight: 600;
   }
 
+  .error-message {
+    display: none;
+  }
+
+  &.error {
+
+    .error-message {
+      display: block;
+      color: red;
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    input {
+      border-color: red;
+    }
+  }
+
   form {
     display: flex;
     flex-direction: column;

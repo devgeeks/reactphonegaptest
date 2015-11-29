@@ -26,20 +26,20 @@ function shouldSearchMedia(state) {
   return !loading;
 }
 
-function searchBegun() {
+export function searchBegun() {
   return {
     type: RESULTS_LOAD_PENDING
   };
 }
 
-function searchFailed(error) {
+export function searchFailed(error) {
   return {
     type: RESULTS_LOAD_FAILURE,
     error
   };
 }
 
-function searchCompleted(results) {
+export function searchCompleted(results) {
   return {
     type: RESULTS_LOAD_SUCCESS,
     searchResults: results
