@@ -51,6 +51,9 @@
     <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <preference name="FadeSplashScreen" value="true" />
     <preference name="FadeSplashScreenDuration" value="1" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
     <engine name="ios" spec="~3.9.2" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
+    <plugin name="cordova-plugin-media" spec="~1.0.1" />
 </widget>

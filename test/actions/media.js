@@ -1,5 +1,5 @@
-import expect from 'expect'
-import { MEDIA_SELECT, selectMedia } from '../../../src/actions/media'
+import expect from 'expect';
+import { MEDIA_SELECT, selectMedia } from '../../src/actions/media';
 
 describe('media actions', () => {
   it('should create an action to select a media item', () => {

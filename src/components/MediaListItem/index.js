@@ -1,2 +1,2 @@
-import MediaListItem from 'MediaListItem';
+import MediaListItem from './MediaListItem';
 export default MediaListItem;
