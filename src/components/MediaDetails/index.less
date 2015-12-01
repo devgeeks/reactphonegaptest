@@ -5,14 +5,52 @@
 
 .media-details {
   .positionAbsolute(203px, 0, 0, 0);
-  padding: 16px;
-  background: #ffffff;
+  padding: 0;
+  background: @white;
+  color: @primaryTextColor;
 
   .label {
     color: @secondaryTextColor;
     text-transform: uppercase;
     font-size: 80%;
     font-weight: 600;
+    padding: 16px;
+    border-bottom: 1px solid @dividerColor;
+  }
+
+  .collection-details {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 55px;
+      padding: 16px;
+      border-bottom: 1px solid @dividerColor;
+
+      .collection-name {
+        flex: 1 0 auto;
+        max-width: 80%;
+        .ellipsis();
+      }
+
+      .collection-price {
+        flex: 1 0 55px;
+        text-align: right;
+      }
+
+      .collection-key {
+        flex: 0 0 100px;
+      }
+
+      .collection-value {
+        flex: 1 0 auto;
+        text-align: right;
+      }
+    }
   }
 }
 
