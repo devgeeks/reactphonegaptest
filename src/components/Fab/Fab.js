@@ -13,13 +13,13 @@ export default React.createClass({
     navbar: React.PropTypes.bool,
   },
 
-  handleClick: function(e) {
+  handleClick(e) {
     e.preventDefault();
     const { handleFabClick } = this.props;
     handleFabClick();
   },
 
-  render: function() {
+  render() {
     const { navbar } = this.props;
     const cx = classNames({
       'fab': true,
@@ -30,5 +30,5 @@ export default React.createClass({
         { this.props.children }
       </a>
     );
-  }
+  },
 });

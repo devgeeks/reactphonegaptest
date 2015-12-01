@@ -11,17 +11,17 @@ export default React.createClass({
     mediaItem: React.PropTypes.object,
   },
 
-  render: function() {
+  render() {
     const { mediaItem } = this.props;
 
     return (
-      <div className='media-details'>
-        <div className='label'>Collection Details</div>
-        <div className=''>{ mediaItem.collectionCensoredName }</div>
-        <div className=''>{ mediaItem.primaryGenreName }</div>
-        <div className='label'>Preview</div>
+      <div className="media-details">
+        <div className="label">Collection Details</div>
+        <div className="">{ mediaItem.collectionCensoredName }</div>
+        <div className="">{ mediaItem.primaryGenreName }</div>
+        <div className="label">Preview</div>
         <div />
       </div>
     );
-  }
+  },
 });

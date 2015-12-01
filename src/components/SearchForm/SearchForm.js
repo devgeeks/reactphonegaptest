@@ -13,16 +13,16 @@ export default React.createClass({
     loading: React.PropTypes.bool,
   },
 
-  handleSubmit: function(e) {
+  handleSubmit(e) {
     const { handleSearch } = this.props;
     const term = this.refs.searchTerm.value;
     e.preventDefault();
     handleSearch({
-      term
+      term,
     });
   },
 
-  render: function() {
+  render() {
     const { loading, error } = this.props;
     const cx = classNames({
       'search-form': true,
@@ -31,14 +31,14 @@ export default React.createClass({
     return (
       <div className={ cx }>
         <form onSubmit={ this.handleSubmit }>
-          <div className='label'>Criteria</div>
-          <input ref='searchTerm' type='text'
-              placeholder='Search for songs'
+          <div className="label">Criteria</div>
+          <input ref="searchTerm" type="text"
+              placeholder="Search for songs"
               disabled={ loading } />
-          <button type='submit'>Search</button>
+          <button type="submit">Search</button>
         </form>
-        <div className='error-message' >{ error }</div>
+        <div className="error-message" >{ error }</div>
       </div>
     );
-  }
+  },
 });

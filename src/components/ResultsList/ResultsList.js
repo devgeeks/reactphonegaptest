@@ -13,8 +13,7 @@ export default React.createClass({
     searchResults: React.PropTypes.object,
   },
 
-  render: function() {
-
+  render() {
     const { searchResults, handleItemClick } = this.props;
 
     const results =
@@ -27,11 +26,11 @@ export default React.createClass({
       );
 
     return (
-      <div className='results-list'>
+      <div className="results-list">
         <ul>
           { results }
         </ul>
       </div>
     );
-  }
+  },
 });

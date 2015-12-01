@@ -13,30 +13,29 @@ const initialState = {
 
 export function results(state = initialState, action) {
   switch (action.type) {
-    case RESULTS_LOAD_PENDING:
-      return {
-        ...state,
-        searchResults: initialState.searchResults, // reset
-        loading: true,
-        error: ''
-      };
-    case RESULTS_LOAD_SUCCESS:
-      return {
-        ...state,
-        error: '',
-        loading: false,
-        searchResults: action.searchResults,
-      };
-    case RESULTS_LOAD_FAILURE:
-      console.log(action);
-      return {
-        ...state,
-        searchResults: initialState.searchResults, // reset
-        loading: false,
-        error: action.error,
-      };
-    default:
-      return state
+  case RESULTS_LOAD_PENDING:
+    return {
+      ...state,
+      searchResults: initialState.searchResults, // reset
+      loading: true,
+      error: '',
+    };
+  case RESULTS_LOAD_SUCCESS:
+    return {
+      ...state,
+      error: '',
+      loading: false,
+      searchResults: action.searchResults,
+    };
+  case RESULTS_LOAD_FAILURE:
+    console.log(action);
+    return {
+      ...state,
+      searchResults: initialState.searchResults, // reset
+      loading: false,
+      error: action.error,
+    };
+  default:
+    return state;
   }
 }
-

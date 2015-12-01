@@ -7,21 +7,19 @@ export function search(params) {
   params.limit = params.limit || 25;
   params.entity = params.entity || 'song';
   return axios.get('https://itunes.apple.com/search', {
-    params: params
+    params: params,
   })
   .then(response => {
-    console.log('utils', response);
-    if (response.status != 200) {
+    if (response.status !== 200) {
       return Promise.reject(`${response.status} ${response.statusText}`);
-    } else {
-      return Promise.resolve(response.data);
     }
+    return Promise.resolve(response.data);
   })
   .catch(response => {
     console.log('utils', response);
     return Promise.reject({
       status: response.status,
-      statusText: response.statusText
+      statusText: response.statusText,
     });
   });
 }

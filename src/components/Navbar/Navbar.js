@@ -12,16 +12,16 @@ export default React.createClass({
     extended: React.PropTypes.bool,
   },
 
-  render: function() {
+  render() {
     const { extended } = this.props;
     const cx = classNames({
       'navbar': true,
       'extended': !!extended,
     });
     return (
-      <header ref='header' className={ cx }>
+      <header ref="header" className={ cx }>
         { this.props.children }
       </header>
     );
-  }
+  },
 });

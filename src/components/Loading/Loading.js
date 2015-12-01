@@ -10,22 +10,21 @@ export default React.createClass({
   displayName: 'Loading',
 
   propTypes: {
-    dismissed: React.PropTypes.bool
+    dismissed: React.PropTypes.bool,
   },
 
-  render: function() {
-
+  render() {
     const { dismissed } = this.props;
 
     const cx = classNames({
       'loading': true,
-      'dismissed': !!dismissed
+      'dismissed': !!dismissed,
     });
 
     return (
       <div className={ cx }>
-        <Spinner pending={ true } dark={ true } height='60px' width='60px' />
+        <Spinner pending dark height="60px" width="60px" />
       </div>
     );
-  }
+  },
 });

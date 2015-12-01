@@ -22,7 +22,7 @@ const store = configureStore();
 // Hybrid apps need to use the hash history (hash locations) since they are
 // often loaded from file:// not a server
 // e.g.: index.html#/foo/bar etc
-let history = createHashHistory();
+const history = createHashHistory();
 
 // The `debug` element will hold the redux-devtools if needed
 let debug = <div style={ {display: 'none'} } />;
@@ -37,9 +37,11 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 document.addEventListener('deviceready', () => {
-  StatusBar && StatusBar.styleLightContent();
-  StatusBar && StatusBar.backgroundColorByHexString('#512DA8');
-  StatusBar && StatusBar.overlaysWebView(false);
+  if (window.StatusBar) {
+    window.StatusBar.styleLightContent();
+    window.StatusBar.backgroundColorByHexString('#512DA8');
+    window.StatusBar.overlaysWebView(false);
+  }
 }, false);
 
 // Render the Provider (complete with store) and the routes to the DOM
@@ -48,10 +50,10 @@ ReactDOM.render(
     <Provider store={ store }>
       <Router history={ history }>
         <Route component={ App }>
-          <Route path='search' component={ SearchPane } />
-          <Route path='results' component={ ResultsPane } />
-          <Route path='details' component={ DetailsPane } />
-          <Redirect from='/' to='/search' />
+          <Route path="search" component={ SearchPane } />
+          <Route path="results" component={ ResultsPane } />
+          <Route path="details" component={ DetailsPane } />
+          <Redirect from="/" to="/search" />
         </Route>
       </Router>
     </Provider>
@@ -59,4 +61,3 @@ ReactDOM.render(
   </div>,
   document.getElementById('app')
 );
-

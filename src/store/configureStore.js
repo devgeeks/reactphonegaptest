@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
   createMyStore = compose(
     applyMiddleware(thunk),
     devTools(),
-    persistState(window.location.href.match(/[?&]debug=([^&]+)\b/)),
+    persistState(window.location.href.match(/[?&]debug=([^&]+)\b/))
   )(createStore);
 } else {
   createMyStore = compose(

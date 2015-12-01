@@ -5,36 +5,35 @@ import classNames from 'classnames';
 
 const App = React.createClass({
 
+  displayName: 'App',
+
   propTypes: {
     children: React.PropTypes.any,
     dispatch: React.PropTypes.func,
-    location: React.PropTypes.object
+    location: React.PropTypes.object,
   },
 
   contextTypes: {
-    router: React.PropTypes.object
+    router: React.PropTypes.object,
   },
 
-  displayName: 'App',
-
-  render: function() {
-
+  render() {
     const cx = classNames({
       'app': true,
     });
 
-    let key = this.props.location.pathname;
+    const key = this.props.location.pathname;
 
     return (
       <div className={ cx }>
         <CSSTransitionGroup
             transitionEnterTimeout={ 250 } transitionLeaveTimeout={ 250 }
-            transitionName='routetransition'>
+            transitionName="routetransition">
           { React.cloneElement(this.props.children || <div />, { key: key }) }
         </CSSTransitionGroup>
       </div>
     );
-  }
+  },
 
 });
 

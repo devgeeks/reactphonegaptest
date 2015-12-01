@@ -1,23 +1,24 @@
+/* eslint no-var:0, strict:0 */
 'use strict';
 
 var webpack = require('webpack');
 var path = require('path');
 var definePlugin = new webpack.DefinePlugin({
   'process.env': {
-    'NODE_ENV': JSON.stringify(process.env.NODE_ENV) || JSON.stringify('development')
-  }
+    'NODE_ENV': JSON.stringify(process.env.NODE_ENV) || JSON.stringify('development'),
+  },
 });
 var lessLoaders = [
   'style',
   'css-loader',
   'autoprefixer-loader?browsers=last 3 versions',
-  'less-loader'
+  'less-loader',
 ];
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
     'webpack/hot/only-dev-server',
-    './src/index.js'
+    './src/index.js',
   ],
   output: {
     path: __dirname,
@@ -37,11 +38,11 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['babel-loader'],
         include: path.join(__dirname, 'src'),
-      }
-    ]
+      },
+    ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    definePlugin
-  ]
+    definePlugin,
+  ],
 };

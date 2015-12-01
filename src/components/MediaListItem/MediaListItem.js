@@ -13,13 +13,13 @@ export default React.createClass({
     mediaItemIndex: React.PropTypes.number,
   },
 
-  handleClick: function(e) {
+  handleClick(e) {
     e.preventDefault();
     const { handleItemClick, mediaItem } = this.props;
     handleItemClick(mediaItem);
   },
 
-  render: function() {
+  render() {
     const { mediaItem } = this.props;
     const {
       artworkUrl60,
@@ -29,21 +29,21 @@ export default React.createClass({
       trackPrice,
     } = mediaItem;
     return (
-      <li className='media-list-item'>
-        <a href='#' onClick={ this.handleClick } className='content'
+      <li className="media-list-item">
+        <a href="#" onClick={ this.handleClick } className="content"
             mediaItem={ mediaItem }>
-          <img alt='artwork' className='artwork'
+          <img alt="artwork" className="artwork"
               src={ artworkUrl60 } />
-          <div className='info'>
-            <div className='title'>{ trackCensoredName }</div>
-            <div className='subtitle'>{ artistName }</div>
-            <div className='collectiontitle'>{
+          <div className="info">
+            <div className="title">{ trackCensoredName }</div>
+            <div className="subtitle">{ artistName }</div>
+            <div className="collectiontitle">{
               collectionCensoredName }
             </div>
           </div>
-          <div className='price'>${ trackPrice }</div>
+          <div className="price">${ trackPrice }</div>
         </a>
       </li>
     );
-  }
+  },
 });
