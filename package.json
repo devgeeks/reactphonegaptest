@@ -7,10 +7,10 @@
     "start": "NODE_ENV=development rm -rf ./www/css/index.* && ./node_modules/.bin/webpack --config webpack.dev.config.js && node server",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack -p",
     "build-dev": "NODE_ENV=development ./node_modules/.bin/webpack",
-    "test": "BABEL_JEST_STAGE=0 rm -rf ./www/css/index.* && ./node_modules/.bin/jest --coverage",
-    "mochatest": "NODE_PATH=$NODE_PATH:$PWD/src NODE_ENV=production ./node_modules/mocha/bin/mocha \"./src/**/*_test.js\" --compilers js:babel-core/register,css:css-null-compiler.js --recursive --require ./test/setup.js",
-    "mochatest:watch": "npm run mochatest -- --watch",
-    "watch:test": "nodemon -w __tests__ -w rm -rf ./www/css/index.* && ./src -e js -x npm test"
+    "jesttest": "BABEL_JEST_STAGE=0 rm -rf ./www/css/index.* && ./node_modules/.bin/jest --coverage",
+    "test": "NODE_PATH=$NODE_PATH:$PWD/src NODE_ENV=production ./node_modules/mocha/bin/mocha \"./src/**/*_test.js\" --compilers js:babel-core/register,css:css-null-compiler.js --recursive --require ./test/setup.js",
+    "test:watch": "npm test -- --watch",
+    "jesttest:watch": "nodemon -w __tests__ -w rm -rf ./www/css/index.* && ./src -e js -x npm test"
   },
   "author": "tommy-carlos williams <tommy@devgeeks.org>",
   "license": "MIT",
