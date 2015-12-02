@@ -2,7 +2,7 @@ import expect from 'expect';
 import {
   searchBegun, searchFailed, searchCompleted, RESULTS_LOAD_PENDING,
   RESULTS_LOAD_FAILURE, RESULTS_LOAD_SUCCESS,
-} from '../../src/actions/search';
+} from './search';
 
 describe('search actions', () => {
   it('should create an action to state that searching has begun', () => {

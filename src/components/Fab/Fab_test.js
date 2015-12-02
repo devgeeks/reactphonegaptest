@@ -2,7 +2,7 @@ import expect, { createSpy } from 'expect';
 import React from 'react'
 import TestUtils, { Simulate } from 'react-addons-test-utils'
 
-import Fab from '../../../src/components/Fab';
+import Fab from './Fab';
 
 let props = {
   handleFabClick: () => {},

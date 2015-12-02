@@ -5,6 +5,7 @@ import { Redirect, Router, Route } from 'react-router';
 import { Provider } from 'react-redux';
 import createHashHistory from 'history/lib/createHashHistory';
 import configureStore from './store/configureStore';
+import FastClick from 'fastclick';
 
 import App from './containers/App';
 import SearchPane from './containers/SearchPane';
@@ -61,3 +62,4 @@ ReactDOM.render(
   </div>,
   document.getElementById('app')
 );
+FastClick.attach(document.body);
