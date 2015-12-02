@@ -26,6 +26,16 @@ module.exports = {
     publicPath: '/js/',
   },
   devtool: 'source-map',
+  resolve: {
+    extensions: ['', '.js'],
+    alias: {
+      'actions': __dirname + '/src/actions/',
+      'components': __dirname + '/src/components/',
+      'containers': __dirname + '/src/containers/',
+      'reducers': __dirname + '/src/reducers/',
+      'utils': __dirname + '/src/utils/',
+    },
+  },
   module: {
     loaders: [
       {

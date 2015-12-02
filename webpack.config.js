@@ -19,7 +19,17 @@ module.exports = {
     path: __dirname,
     filename: 'www/js/bundle.js',
   },
-  devtool: 'source-map',
+  resolve: {
+    extensions: ['', '.js', 'less'],
+    alias: {
+      'actions': __dirname + '/src/actions/',
+      'components': __dirname + '/src/components/',
+      'containers': __dirname + '/src/containers/',
+      'less_includes': __dirname + '/src/less_includes/',
+      'reducers': __dirname + '/src/reducers/',
+      'utils': __dirname + '/src/utils/',
+    },
+  },
   module: {
     loaders: [
       {

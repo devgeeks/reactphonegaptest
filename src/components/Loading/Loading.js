@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import Spinner from '../Spinner';
+import Spinner from 'components/Spinner';
 
 import './index.less';
 

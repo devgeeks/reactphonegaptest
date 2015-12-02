@@ -17,32 +17,32 @@ const ResultsPane = React.createClass({
     results: React.PropTypes.object,
   },
 
-  handleBackButton: function(e) {
+  handleBackButton(e) {
     e.preventDefault();
     const { history } = this.props;
     history.goBack();
   },
 
-  handleItemClick: function(mediaItem) {
+  handleItemClick(mediaItem) {
     const { dispatch, history } = this.props;
     dispatch(selectMedia(mediaItem));
     history.pushState(null, '/details');
   },
 
-  render: function() {
+  render() {
     const { results } = this.props;
     const { searchResults, loading } = results;
     return (
       <div>
         <Navbar>
-          <button name='back' onClick={ this.handleBackButton }><MdArrowBack /></button>
+          <button name="back" onClick={ this.handleBackButton }><MdArrowBack /></button>
           <h1>Results</h1>
         </Navbar>
         <Loading dismissed={ !loading } />
         <ResultsList handleItemClick={ this.handleItemClick } searchResults={ searchResults } />
       </div>
     );
-  }
+  },
 });
 
 function mapStateToProps(state) {

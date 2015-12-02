@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MediaListItem from '../MediaListItem';
+import MediaListItem from 'components/MediaListItem';
 
 import './index.less';
 

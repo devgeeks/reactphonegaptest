@@ -6,4 +6,3 @@ export function selectMedia(mediaItem) {
     mediaItem,
   };
 }
-

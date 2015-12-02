@@ -16,7 +16,7 @@ const SearchPane = React.createClass({
     results: React.PropTypes.object,
   },
 
-  handleSearch: function(params) {
+  handleSearch(params) {
     const { dispatch, history } = this.props;
     if (!params.term) {
       dispatch(searchFailed('Search cannot be empty'));
@@ -26,7 +26,7 @@ const SearchPane = React.createClass({
     history.pushState(null, '/results');
   },
 
-  render: function() {
+  render() {
     const { results } = this.props;
     const { loading, error } = results;
     return (
@@ -39,7 +39,7 @@ const SearchPane = React.createClass({
             handleSearch={ this.handleSearch } />
       </div>
     );
-  }
+  },
 });
 
 function mapStateToProps(state) {
