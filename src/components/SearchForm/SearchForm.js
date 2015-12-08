@@ -15,10 +15,10 @@ export default React.createClass({
 
   handleSubmit(e) {
     const { handleSearch } = this.props;
-    const term = this.refs.searchTerm.value;
+    const q = this.refs.searchTerm.value;
     e.preventDefault();
     handleSearch({
-      term,
+      q,
     });
   },
 

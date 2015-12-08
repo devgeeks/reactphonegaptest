@@ -1,4 +1,5 @@
-import { search } from 'utils/iTunesAPIUtils';
+import { search } from 'utils/spotifyAPIUtils';
+// import { search } from 'utils/iTunesAPIUtils';
 
 export const RESULTS_LOAD_PENDING = 'RESULTS_LOAD_PENDING';
 export const RESULTS_LOAD_SUCCESS = 'RESULTS_LOAD_SUCCESS';

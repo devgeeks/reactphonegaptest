@@ -26,7 +26,7 @@ const ResultsPane = React.createClass({
   handleItemClick(mediaItem) {
     const { dispatch, history } = this.props;
     dispatch(selectMedia(mediaItem));
-    history.pushState(null, '/details');
+    history.push('/details');
   },
 
   render() {

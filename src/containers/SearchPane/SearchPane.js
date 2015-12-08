@@ -18,12 +18,12 @@ const SearchPane = React.createClass({
 
   handleSearch(params) {
     const { dispatch, history } = this.props;
-    if (!params.term) {
+    if (!params.q) {
       dispatch(searchFailed('Search cannot be empty'));
       return;
     }
     dispatch(searchMedia(params));
-    history.pushState(null, '/results');
+    history.push('/results');
   },
 
   render() {

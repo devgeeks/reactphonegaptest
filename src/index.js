@@ -27,9 +27,11 @@ const history = createHashHistory();
 
 // The `debug` element will hold the redux-devtools if needed
 let debug = <div style={ {display: 'none'} } />;
-// If not in PRODUCTION, we'll set the redux-devtools up in the `debug` element above
+// If not in PRODUCTION, we'll set the redux-devtools up in the `debug`
+//   element above
 if (process.env.NODE_ENV !== 'production') {
-  const { DevTools, DebugPanel, LogMonitor } = require('redux-devtools/lib/react');
+  const { DevTools, DebugPanel, LogMonitor } =
+    require('redux-devtools/lib/react');
   debug = (
     <DebugPanel top right bottom>
       <DevTools store={ store } monitor={ LogMonitor } />

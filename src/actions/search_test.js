@@ -7,7 +7,7 @@ import {
 describe('search actions', () => {
   it('should create an action to state that searching has begun', () => {
     const expectedAction = {
-      type: RESULTS_LOAD_PENDING
+      type: RESULTS_LOAD_PENDING,
     };
     expect(searchBegun()).toEqual(expectedAction);
   });
@@ -21,13 +21,12 @@ describe('search actions', () => {
   it('should create an action to state that searching has completed', () => {
     const searchResults = {
       results: [],
-      resultCount: 0
+      resultCount: 0,
     };
     const expectedAction = {
       type: RESULTS_LOAD_SUCCESS,
-      searchResults
+      searchResults,
     };
     expect(searchCompleted(searchResults)).toEqual(expectedAction);
   });
 });
-

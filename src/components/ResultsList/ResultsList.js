@@ -20,7 +20,7 @@ export default React.createClass({
       searchResults.results.map(
         (result, idx) => {
           return (<MediaListItem handleItemClick={ handleItemClick }
-              key={ result.trackId } mediaItem={ result }
+              key={ result.id} mediaItem={ result }
               mediaItemIndex={ idx } />);
         }
       );

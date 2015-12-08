@@ -22,26 +22,22 @@ export default React.createClass({
   render() {
     const { mediaItem } = this.props;
     const {
-      artworkUrl60,
-      trackCensoredName,
-      artistName,
-      collectionCensoredName,
-      trackPrice,
+      album,
+      name,
+      artists,
     } = mediaItem;
     return (
       <li className="media-list-item">
         <a href="#" onClick={ this.handleClick } className="content"
             mediaItem={ mediaItem }>
           <img alt="artwork" className="artwork"
-              src={ artworkUrl60 } />
+              src={ album.images[1].url } />
           <div className="info">
-            <div className="title">{ trackCensoredName }</div>
-            <div className="subtitle">{ artistName }</div>
-            <div className="collectiontitle">{
-              collectionCensoredName }
+            <div className="title">{ name }</div>
+            <div className="subtitle">{ artists[0].name }</div>
+            <div className="collectiontitle">{ album.name }
             </div>
           </div>
-          <div className="price">${ trackPrice }</div>
         </a>
       </li>
     );

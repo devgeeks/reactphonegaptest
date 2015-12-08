@@ -42,7 +42,7 @@ const DetailsPane = React.createClass({
     const { media: mediaItem } = this.props;
     if (window && window.cordova) {
       // Use the Media plugin
-      return new window.Media(mediaItem.previewUrl,
+      return new window.Media(mediaItem.preview_url,
           () => { console.log('Media Success'); },
           (error) => { console.log('Media fail ' + error); },
           (status) => {
@@ -66,7 +66,7 @@ const DetailsPane = React.createClass({
           });
     }
     // Use html5 Audio
-    const audio = new Audio(mediaItem.previewUrl);
+    const audio = new Audio(mediaItem.preview_url);
     audio.stop = audio.pause;
     return audio;
   },
@@ -124,15 +124,15 @@ const DetailsPane = React.createClass({
           <button />
           <div className="bg"
               style={ {
-                background: 'url(' + mediaItem.artworkUrl100 +
+                background: 'url(' + mediaItem.album.images[0].url +
                                 ') center center no-repeat',
                 backgroundSize: '100%',
               } } />
           <div className="extendedContent">
-            <img width="100" src={ mediaItem.artworkUrl100 } alt="artwork" />
+            <img width="100" src={ mediaItem.album.images[1].url } alt="artwork" />
             <div className="info">
-              <div className="title">{ mediaItem.trackCensoredName }</div>
-              <div className="subtitle">{ mediaItem.artistName }</div>
+              <div className="title">{ mediaItem.name }</div>
+              <div className="subtitle">{ mediaItem.artists[0].name }</div>
             </div>
           </div>
         </Navbar>
